@@ -12,18 +12,7 @@ Change the search query behaviour searching only in the post/product title.
 
 == Description ==
 
-Change the search query behaviour searching only in the post/product title. You can add post types to the **not allowed** list using this code
-
-```
-function wc_filter_search_add_post_type( $array ) {
-	array_push( $array, 'your_post_type' );
-	array_push( $array, 'another_post_type' );
-	array_push( $array, 'etc' );
-
-	return array;
-}
-add_filter( 'wc_filter_search_not_allowed_array', 'wc_filter_search_add_post_type' );
-```
+Change the search query behaviour searching only in the post/product title. You can add post types to the **not allowed** list using [this code](https://gist.github.com/SiR-DanieL/8ca1b1b33ab791836a59).
 
 By default the unallowed post types are **product** and **shop_webhook**.
 
