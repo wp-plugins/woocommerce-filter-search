@@ -30,6 +30,9 @@ For any support request, please create a new issue [here](https://github.com/Pin
 
 ## Changelog
 
+### 1.0.1
+* Fix: Bug in plugin logic
+
 ### 1.0.0
 * First release
 
