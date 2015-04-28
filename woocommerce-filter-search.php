@@ -3,11 +3,11 @@
  * Plugin Name: WooCommerce Filter Search
  * Plugin URI: https://github.com/PinchOfCode/woocommerce-filter-search
  * Description: Search for WooCommerce products only in the products title.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: Pinch Of Code
  * Author URI: http://pinchofcode.com
  * Requires at least: 3.8
- * Tested up to: 3.9.2
+ * Tested up to: 4.2.1
  *
  * GitHub Plugin URI: https://github.com/PinchOfCode/woocommerce-filter-search
  * License: GPL-2
@@ -31,14 +31,14 @@ function wc_filter_search_by_title_only( $search, &$wp_query ) {
         return $search; // skip processing - no search term in query
     }
 
-    $q = $wp_query->query_vars;    
+    $q = $wp_query->query_vars;
     $n = ! empty( $q['exact'] ) ? '' : '%';
 
     $search =
     $searchand = '';
 
     foreach ( (array) $q['search_terms'] as $term ) {
-        $term = esc_sql( like_escape( $term ) );
+        $term = esc_sql( $wpdb->esc_like( $term ) );
         $search .= "{$searchand}($wpdb->posts.post_title LIKE '{$n}{$term}{$n}')";
         $searchand = ' AND ';
     }
@@ -68,7 +68,7 @@ function wc_filter_search_remove_wc_excerpt_search( $where = '' ) {
         "", $where );
 
     return $where;
-} 
+}
 add_filter( 'posts_where', 'wc_filter_search_remove_wc_excerpt_search', 15 );
 
 function wc_filter_search_add_plugin_links( $links, $file ) {

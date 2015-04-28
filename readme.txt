@@ -1,10 +1,10 @@
 === WooCommerce Filter Search ===
-Contributors: pinchofcode
+Contributors: pinchofcode, nicolamustone
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=paypal@pinchofcode.com&item_name=Donation+for+Pinch+Of+Code
 Tags: woocommerce, search, excerpt, content, title, filter
 Requires at least: 3.8
-Tested up to: 3.9.2
-Stable tag: 1.0.1
+Tested up to: 4.2.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -63,6 +63,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 2. Order detail admin page
 
 == Changelog ==
+
+= 1.0.2 =
+* Fix: replaced deprecated like_escape with esc_like
 
 = 1.0.1 =
 * Fix: Bug in plugin logic
